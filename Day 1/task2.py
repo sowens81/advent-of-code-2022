@@ -27,4 +27,4 @@ for i in high:
     value=i[1]
     z += value
 
-print(z)
+print("The top 3 elfs have a combined calory count of " + str(z))

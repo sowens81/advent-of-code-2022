@@ -18,7 +18,5 @@ for line in lines:
         y = 0
 
 file.close()
-
 max_value = max(elfs, key=elfs.get)
-print(max_value)
-print(elfs.get(max_value))
+print("The elf with the most calories of " + str(elfs.get(max_value)) + " is " + max_value )
