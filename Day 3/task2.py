@@ -7,7 +7,7 @@ groupList=[]
 errorScoring= {}
 alphabetLowerCase = list(string.ascii_lowercase)
 alphabetUpperCase = list(string.ascii_uppercase)
-TotalErrorScore=0
+totalErrorScore=0
 
 for index, a in enumerate(alphabetLowerCase):
     letter=a
@@ -65,10 +65,10 @@ for index, line in enumerate(lines):
     if lineCount == 3:
         badge = find_the_badge(groupList)
         score = backpack_error_value(badge)
-        TotalErrorScore += score
+        totalErrorScore += score
         dicItem={"group": groupCount, "value": score}
         badgeGroups.append(dicItem)
         lineCount=0
         groupList=[]
 
-print("Total error score is: " + str(TotalErrorScore))
+print("Total error score is: " + str(totalErrorScore))

@@ -3,7 +3,7 @@ import string
 errorScoring= {}
 alphabetLowerCase = list(string.ascii_lowercase)
 alphabetUpperCase = list(string.ascii_uppercase)
-TotalErrorScore=0
+totalErrorScore=0
 
 for index, a in enumerate(alphabetLowerCase):
     letter=a
@@ -55,8 +55,8 @@ for index, line in enumerate(lines):
     
     backPackErrorList= check_backpack_errors(pocketOneItems, pocketTwoItems)
     backPackErrorValue= backpack_error_value(backPackErrorList)
-    TotalErrorScore += backPackErrorValue
+    totalErrorScore += backPackErrorValue
     print(backPackErrorList)
     print(backPackErrorValue)
     
-print("The total backpack error score is: " + str(TotalErrorScore))
+print("The total backpack error score is: " + str(totalErrorScore))
