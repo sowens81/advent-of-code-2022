@@ -1,43 +1,20 @@
-
+errorLines=0
 
 file = open("data.txt")
 lines = file.readlines()
+pairs = [line.strip() for line in lines]
 
-errorLines=0
+def validate_range(a, b, index):
+    startA, endA = map(int, a.split('-'))
+    startB, endB = map(int, b.split('-'))
+    return startB <= startA and endA <= endB
 
-def validate_work(workingList):
-    a = workingList[0]["first"]
-    b = workingList[0]["last"]
-    x = workingList[1]["first"]
-    y = workingList[1]["last"]
-    
-    if a < x:
-        if b > y:
-            return True  
-            
-        
-    if x < a:
-        if y > b:
-            return True
-    
-    if a == x:
-        if b ==  y:
-            return True
-    
-    return False
-            
-
-for index, line in enumerate(lines):
+for index, p in enumerate(pairs):
     workingList = []
-    pairs = line.replace("\n","").split(",")
-    
-    for p in pairs:
-        values = p.split("-")
-        value = {"first": values[0],"last": values[1]}
-        workingList.append(value)
-        
-    retval = validate_work(workingList)
-    if retval == True:
+    a, b = p.split(',')
+    print("line:" + str(index+1))
+    if validate_range(a, b, index) or validate_range(b, a, index):
+        print("Bad line:" + str(index+1))
         errorLines += 1
             
 print( "There are " + str(errorLines) + " overlapping jobs.")
